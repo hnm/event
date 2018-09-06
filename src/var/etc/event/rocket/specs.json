@@ -548,7 +548,7 @@
             "dataSourceName": null,
             "label": "Event-Seite",
             "pluralLabel": "Event-Seiten",
-            "iconType": null,
+            "iconType": "fa fa-glass",
             "fields": [],
             "commands": [],
             "partialControlOrder": [],
