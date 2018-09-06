@@ -1,0 +1,198 @@
+{
+    "event\\bo\\EventParticipant": {
+        "id": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\IntegerPropDef",
+            "props": {
+                "size": "32",
+                "signed": false
+            }
+        },
+        "firstName": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "lastName": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "phone": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "email": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "event": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\ManyToOnePropDef",
+            "props": {
+                "targetEntityClass": "event\\bo\\Event",
+                "mappedBy": null,
+                "cascadeType": [],
+                "fetchType": "lazy"
+            }
+        }
+    },
+    "event\\bo\\EventT": {
+        "id": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\IntegerPropDef",
+            "props": {
+                "size": "32",
+                "signed": false
+            }
+        },
+        "n2nLocale": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\N2nLocalePropDef",
+            "props": {
+                "required": true
+            }
+        },
+        "title": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "pathPart": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "intro": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "time": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "location": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "contentItems": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToManyPropDef",
+            "props": {
+                "targetEntityClass": "rocket\\impl\\ei\\component\\prop\\ci\\model\\ContentItem",
+                "mappedBy": null,
+                "cascadeType": {
+                    "1": "1",
+                    "2": "2",
+                    "4": "4",
+                    "8": "8",
+                    "16": "16"
+                },
+                "fetchType": "lazy",
+                "orphanRemoval": true
+            }
+        },
+        "event": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\ManyToOnePropDef",
+            "props": {
+                "targetEntityClass": "event\\bo\\Event",
+                "mappedBy": null,
+                "cascadeType": [],
+                "fetchType": "lazy"
+            }
+        }
+    },
+    "event\\bo\\Event": {
+        "id": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\IntegerPropDef",
+            "props": {
+                "size": "32",
+                "signed": false
+            }
+        },
+        "dateFrom": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\DateTimePropDef",
+            "props": {
+                "required": true
+            }
+        },
+        "registrationAvailable": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\BooleanPropDef",
+            "props": {
+                "required": false
+            }
+        },
+        "dateTo": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\DateTimePropDef",
+            "props": {
+                "required": false
+            }
+        },
+        "maxParticipants": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\IntegerPropDef",
+            "props": {
+                "size": "32",
+                "signed": false
+            }
+        },
+        "eventParticipants": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToManyPropDef",
+            "props": {
+                "targetEntityClass": "event\\bo\\EventParticipant",
+                "mappedBy": "event",
+                "cascadeType": {
+                    "1": "1",
+                    "2": "2",
+                    "4": "4",
+                    "8": "8",
+                    "16": "16"
+                },
+                "fetchType": "lazy",
+                "orphanRemoval": true
+            }
+        },
+        "eventTs": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToManyPropDef",
+            "props": {
+                "targetEntityClass": "event\\bo\\EventT",
+                "mappedBy": "event",
+                "cascadeType": {
+                    "1": "1",
+                    "2": "2",
+                    "4": "4",
+                    "8": "8",
+                    "16": "16"
+                },
+                "fetchType": "lazy",
+                "orphanRemoval": true
+            }
+        }
+    },
+    "event\\bo\\CiEvent": {
+        "sizeType": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\IntegerPropDef",
+            "props": {
+                "size": "32",
+                "signed": false
+            }
+        }
+    }
+}
