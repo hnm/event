@@ -5,7 +5,6 @@ use n2n\reflection\ObjectAdapter;
 use n2n\web\http\orm\ResponseCacheClearer;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\reflection\annotation\AnnoInit;
-use event\bo\Event;
 use n2n\persistence\orm\annotation\AnnoManyToOne;
 
 class EventParticipant extends ObjectAdapter {

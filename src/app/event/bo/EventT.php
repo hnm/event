@@ -9,7 +9,6 @@ use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\reflection\annotation\AnnoInit;
 use rocket\impl\ei\component\prop\ci\model\ContentItem;
 use n2n\persistence\orm\CascadeType;
-use event\bo\Event;
 use n2n\persistence\orm\annotation\AnnoOneToMany;
 use n2n\persistence\orm\annotation\AnnoManyToOne;
 

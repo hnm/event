@@ -2,8 +2,7 @@
 	use n2n\impl\web\ui\view\html\HtmlView;
 	use event\bo\CiEvent;
 	use event\model\EventDao;
-use dbtext\DbtextHtmlBuilder;
-use event\bo\EventT;
+	use dbtext\DbtextHtmlBuilder;
 	
 	$view = HtmlView::view($view);
 	$html = HtmlView::html($view);
