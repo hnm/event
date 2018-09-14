@@ -7,7 +7,6 @@ use n2n\web\dispatch\annotation\AnnoDispObjectArray;
 use event\bo\Event;
 use n2n\web\dispatch\map\bind\BindingDefinition;
 use n2n\impl\web\dispatch\map\val\ValArraySize;
-use event\model\EventDao;
 use n2n\util\ex\IllegalStateException;
 use n2n\web\http\HttpContext;
 
