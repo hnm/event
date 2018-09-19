@@ -41,8 +41,8 @@
 									<?php $html->out($formHtml->meta()->getResolvedArrayKey() + 1) ?>
 								</span>. <?php $dbtextHtml->t('event_participant_txt')?>
 							</span>
-							<span class="ml-auto event-participant-remove">
-								x
+							<span class="ml-auto event-participant-remove btn btn-danger">
+								<?php $dbtextHtml->t('event_participant_remove') ?>
 							</span>
 						</span>
 					</legend>
@@ -53,10 +53,14 @@
 					<?php $bsFormHtml->inputGroup('phone', Bs::req(false)) ?>
 				</fieldset>
 			<?php }, $eventRegistrationForm->getMaxNumParticipants(), $eventRegistrationForm->getMaxNumParticipants()) ?>
-			<div class="event-participant-add">
-				add
+		</div>
+		<div class="row">
+			<div class="col-sm-9 offset-sm-3">
+        		<div class="event-participant-add btn btn-success float-right">
+        			<?php $dbtextHtml->t('event_add_participant') ?>
+        		</div>			
+        		<?php $formHtml->buttonSubmit('register', $dbtextHtml->getT('register_txt'), array('class' => 'btn btn-primary'))?>
 			</div>
 		</div>
-		<?php $bsFormHtml->buttonSubmitGroup('register', $dbtextHtml->getT('register_txt'))?>
 	<?php $bsFormHtml->close() ?>
 <?php endif ?>
