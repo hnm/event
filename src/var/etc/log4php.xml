@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
 <configuration xmlns="http://logging.apache.org/log4php/">
     <appender name="myConsoleAppender" class="n2n\log4php\appender\AppenderConsole" />
     <appender name="myFileAppender" class="n2n\log4php\appender\nn6\VarLogFileAppender">
