@@ -22,7 +22,7 @@ class EventDao implements RequestScoped {
 	 */
 	public function getEvents(int $num = null) {
 		$today = (new \DateTime())->setTime(0, 0, 0);
-		return $this->em->createNqlCriteria('SELECT e FROM event\bo\Event e WHERE e.dateFrom >= :today ORDER BY e.dateFrom ASC', 
+		return $this->em->createNqlCriteria('SELECT e FROM event\bo\Event e WHERE e.dateFrom >= :today OR e.dateTo >= :today ORDER BY e.dateFrom ASC', 
 				['today' => $today])->limit($num)->toQuery()->fetchArray();
 	}
 	
@@ -38,5 +38,17 @@ class EventDao implements RequestScoped {
 	
 	public function persistEvent(Event $event) {
 		$this->em->persist($event);
+	}
+		
+	public function getPastEvents() {
+		$today = (new \DateTime())->setTime(0, 0, 0);
+		return $this->em->createNqlCriteria('SELECT e FROM event\bo\Event e WHERE e.dateFrom < :today AND (e.dateTo IS NULL OR e.dateTo < :today) ORDER BY e.dateFrom ASC',
+				['today' => $today])->toQuery()->fetchArray();
+	}
+	
+	public function removePastEvents() {
+		foreach ($this->getPastEvents() as $event) {
+			$this->em->remove($event);
+		}
 	}
 }
