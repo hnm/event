@@ -16,7 +16,7 @@
         "n2n/n2n-composer-module-installer": "7.1.x-dev",
         "n2n/rocket": "2.0.x-dev",
         "n2n/dbtext": "1.0.x-dev",
-        "n2n/n2nutil-bootstrap": "4.0.x-dev"
+        "n2n/n2nutil-bootstrap": "4.1.x-dev"
     },
     "autoload": {
         "psr-4": {
