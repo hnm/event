@@ -1,26 +1,30 @@
 {
-    "name": "hnm/event",
-    "type": "n2n-tmpl-module",
-    "description": "Event module for n2n",
-    "keywords": ["n2n-tmpl-module", "n2n-module", "n2n"],
-    "homepage": "https://n2n.rocks/",
-    "license": "MIT",
     "authors": [
         {
-            "name": "Thomas Günther",
-            "email": "guenther@hnm.ch"
+            "email": "guenther@hnm.ch",
+            "name": "Thomas G\u00fcnther"
         }
     ],
-    "require": {
-        "php": ">=7.0",
-        "n2n/n2n-composer-module-installer": "7.1.x-dev",
-        "n2n/rocket": "2.0.x-dev",
-        "n2n/dbtext": "1.0.x-dev",
-        "n2n/n2nutil-bootstrap": "4.1.x-dev"
-    },
     "autoload": {
         "psr-4": {
             "event\\": "src/app/event"
         }
-    }
+    },
+    "description": "Event module for n2n",
+    "homepage": "https://n2n.rocks/",
+    "keywords": [
+        "n2n-tmpl-module",
+        "n2n-module",
+        "n2n"
+    ],
+    "license": "MIT",
+    "name": "hnm/event",
+    "require": {
+        "n2n/dbtext": "^1.0.0",
+        "n2n/n2n-composer-module-installer": "~7.1.1",
+        "n2n/n2nutil-bootstrap": "^4.1.3",
+        "n2n/rocket": "^2.0.0",
+        "php": ">=7.0"
+    },
+    "type": "n2n-tmpl-module"
 }
