@@ -4,7 +4,7 @@ namespace event\model;
 use n2n\context\RequestScoped;
 use event\bo\EventParticipant;
 use dbtext\model\TextService;
-use n2n\reflection\ArgUtils;
+use n2n\util\type\ArgUtils;
 use n2n\mail\MailUtils;
 use event\bo\EventT;
 use n2n\l10n\N2nLocale;
