@@ -18,10 +18,5 @@
         "n2n/page": "dev-master",
         "n2n/dbtext": "dev-master",
         "n2n/n2nutil-bootstrap": "dev-master"
-    },
-    "autoload": {
-        "psr-4": {
-            "event\\": "src/app/event"
-        }
     }
 }
