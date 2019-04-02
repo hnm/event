@@ -4,6 +4,7 @@
 	use n2nutil\bootstrap\ui\BsFormHtmlBuilder;
 	use n2nutil\bootstrap\ui\Bs;
 	use dbtext\DbtextHtmlBuilder;
+	use event\model\EventParticipantForm;
 	
 	$view = HtmlView::view($view);
 	$html = HtmlView::html($view);
@@ -16,7 +17,8 @@
 	$eventT = $event->t($view->getN2nLocale());
 	
 	$dbtextHtml = new DbtextHtmlBuilder($view);
-	$bsFormHtml = new BsFormHtmlBuilder($view, Bs::req()->row('col-sm-3', 'col-sm-9', 'offset-sm-3'));
+	$bsComposer = Bs::req()->row('col-sm-3', 'col-sm-9', 'offset-sm-3');
+	$bsFormHtml = new BsFormHtmlBuilder($view, $bsComposer);
 	
 	$html->meta()->addJs('js/event.js');
 	
@@ -32,7 +34,10 @@
 <?php else: ?>
 	<?php $bsFormHtml->open($eventRegistrationForm, null, null, array('class' => 'event-form')) ?>
 		<div class="event-participant-forms">
-			<?php $formHtml->meta()->arrayProps('eventParticipantForms', function() use ($html, $bsFormHtml, $formHtml, $dbtextHtml) { ?>
+			<?php $formHtml->meta()->arrayProps('eventParticipantForms', function() use ($html, $bsFormHtml, $formHtml, $dbtextHtml, 
+					$view, $eventRegistrationForm, $bsComposer) { ?>
+				<?php $eventParticipantForm = $formHtml->meta()->getMapValue()->getObject() ?>
+				<?php $view->assert($eventParticipantForm instanceof EventParticipantForm) ?>
 				<fieldset class="event-participant-form">
 					<legend>
 						<span class="d-flex">
@@ -41,9 +46,9 @@
 									<?php $html->out($formHtml->meta()->getResolvedArrayKey() + 1) ?>
 								</span>. <?php $dbtextHtml->t('event_participant_txt')?>
 							</span>
-							<span class="ml-auto event-participant-remove btn btn-danger">
-								<?php $dbtextHtml->t('event_participant_remove') ?>
-							</span>
+							<a href="#" class="ml-auto event-participant-remove">
+								x
+							</a>
 						</span>
 					</legend>
 					<?php $formHtml->optionalObjectCheckbox(null, ['class' => 'event-registration-optional']) ?>
@@ -51,16 +56,20 @@
 					<?php $bsFormHtml->inputGroup('lastName') ?>
 					<?php $bsFormHtml->inputGroup('email') ?>
 					<?php $bsFormHtml->inputGroup('phone', Bs::req(false)) ?>
+					<?php if (null !== $eventParticipantForm->magForm): ?>
+						<?php $view->import('\formgen\view\inc\formElements.html', ['formElements' => $eventRegistrationForm->getEvent()->getFormElementSet()->getFormElements(), 
+								'propPath' => $formHtml->meta()->propPath('magForm'), 'bsComposer' => $bsComposer]) ?>
+					<?php endif ?>
 				</fieldset>
 			<?php }, $eventRegistrationForm->getMaxNumParticipants(), $eventRegistrationForm->getMaxNumParticipants()) ?>
 		</div>
 		<div class="row">
-			<div class="col-sm-9 offset-sm-3">
-        		<div class="event-participant-add btn btn-success float-right">
-        			<?php $dbtextHtml->t('event_add_participant') ?>
-        		</div>			
-        		<?php $formHtml->buttonSubmit('register', $dbtextHtml->getT('register_txt'), array('class' => 'btn btn-primary'))?>
+			<div class="offset-sm-3 col-sm-9">
+				<a href="#" class="event-participant-add btn btn-secondary">
+					<?php $dbtextHtml->t('add_participant_txt')?>
+				</a>
 			</div>
 		</div>
+		<?php $bsFormHtml->buttonSubmitGroup('register', $dbtextHtml->getT('register_txt'))?>
 	<?php $bsFormHtml->close() ?>
 <?php endif ?>

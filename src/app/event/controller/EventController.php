@@ -20,10 +20,16 @@ class EventController extends ControllerAdapter {
 	}
 	
 	public function index() {
+		$this->assignHttpCacheControl(new \DateInterval('PT30M'));
+		$this->assignResponseCacheControl(new \DateInterval('P30D'));
+		
 		$this->forward('..\view\eventOverview.html', array('events' => $this->eventDao->getEvents()));
 	}
 	
 	public function detail($eventTPathPart) {
+		$this->assignHttpCacheControl(new \DateInterval('PT30M'));
+		$this->assignResponseCacheControl(new \DateInterval('P30D'));
+		
 		$eventT = $this->eventDao->getEventTByPathPart($eventTPathPart);
 		if (null === $eventT) {
 			throw new PageNotFoundException('Invalid event t path part: ' . $eventTPathPart);
@@ -40,7 +46,7 @@ class EventController extends ControllerAdapter {
 			throw new PageNotFoundException('Invalid event t path part: ' . $eventTPathPart);
 		}
 		
-		$eventRegistrationForm = new EventRegistrationForm($eventT->getEvent());
+		$eventRegistrationForm = new EventRegistrationForm($eventT->getEvent(), $this->getRequest()->getN2nLocale());
 		if ($this->dispatch($eventRegistrationForm, 'register')) {
 			$this->commit();
 			$this->redirectToController('registrationthanks');
@@ -53,6 +59,8 @@ class EventController extends ControllerAdapter {
 	}
 	
 	public function doRegistrationThanks() {
+		$this->assignHttpCacheControl(new \DateInterval('PT30M'));
+		$this->assignResponseCacheControl(new \DateInterval('P30D'));
 		$this->forward('..\view\eventRegistrationThanks.html');
 	}
 }

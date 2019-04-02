@@ -8,25 +8,15 @@
             "pluralLabel": "Events",
             "iconType": null,
             "identityStringPattern": "{eventTs.title}-{dateFrom}",
-            "fields": {
-                "dateFrom": {
-                    "class": "rocket\\impl\\ei\\component\\prop\\date\\DateTimeEiProp",
-                    "props": {
-                        "displayInOverview": true,
-                        "displayInDetailView": true,
-                        "displayInEditView": true,
-                        "displayInAddView": true,
-                        "constant": false,
-                        "readOnly": false,
-                        "mandatory": true,
-                        "draftable": false,
-                        "dateStyle": "medium",
-                        "timeStyle": "none"
-                    },
-                    "label": "Datum von",
-                    "objectProperty": "dateFrom",
-                    "entityProperty": "dateFrom"
-                },
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": {
+                "dateFrom": "ASC"
+            },
+            "props": {
                 "eventTs": {
                     "class": "rocket\\impl\\ei\\component\\prop\\translation\\TranslationEiProp",
                     "props": {
@@ -50,11 +40,29 @@
                             }
                         ],
                         "customN2nLocaleDefs": [],
-                        "min": "0"
+                        "min": "1"
                     },
                     "label": "Event Ts",
                     "objectProperty": "eventTs",
                     "entityProperty": "eventTs"
+                },
+                "dateFrom": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\date\\DateTimeEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": true,
+                        "draftable": false,
+                        "dateStyle": "medium",
+                        "timeStyle": "none"
+                    },
+                    "label": "Datum von",
+                    "objectProperty": "dateFrom",
+                    "entityProperty": "dateFrom"
                 },
                 "registrationAvailable": {
                     "class": "rocket\\impl\\ei\\component\\prop\\bool\\BooleanEiProp",
@@ -68,6 +76,7 @@
                         "draftable": false,
                         "onAssociatedGuiProps": {
                             "maxParticipants": "maxParticipants",
+                            "formElementSet": "formElementSet",
                             "eventParticipants": "eventParticipants"
                         },
                         "offAssociatedGuiProps": []
@@ -90,9 +99,46 @@
                         "minValue": "0",
                         "maxValue": "4294967295"
                     },
-                    "label": "Maximale Anzahl Teilnehmer",
+                    "label": "Max. Teilnehmerzahl",
                     "objectProperty": "maxParticipants",
                     "entityProperty": "maxParticipants"
+                },
+                "private": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\bool\\BooleanEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": "Wird nicht in der \u00dcbersicht angezeigt",
+                        "constant": false,
+                        "readOnly": false,
+                        "draftable": false
+                    },
+                    "label": "Privat",
+                    "objectProperty": "private",
+                    "entityProperty": "private"
+                },
+                "formElementSet": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\relation\\EmbeddedOneToOneEiProp",
+                    "props": {
+                        "displayInOverview": false,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": true,
+                        "draftable": false,
+                        "targetExtensions": [],
+                        "replaceable": false,
+                        "targetRemovalStrategy": "prevent",
+                        "orphansAllowed": false,
+                        "reduced": false
+                    },
+                    "label": "Zus\u00e4tzliches Formular pro Teilnehmer",
+                    "objectProperty": "formElementSet",
+                    "entityProperty": "formElementSet"
                 },
                 "dateTo": {
                     "class": "rocket\\impl\\ei\\component\\prop\\date\\DateTimeEiProp",
@@ -149,6 +195,12 @@
                 },
                 "addEiCommand": {
                     "class": "rocket\\impl\\ei\\component\\command\\common\\AddEiCommand",
+                    "props": {
+                        "duplicateAllowed": false
+                    }
+                },
+                "duplicate": {
+                    "class": "win4\\ei\\EgoDuplicateEiCommand",
                     "props": []
                 },
                 "deleteEiCommand": {
@@ -156,7 +208,12 @@
                     "props": []
                 }
             },
-            "bulkyOrder": [
+            "overviewOrder": [
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventTs.title"
+                },
                 {
                     "label": null,
                     "type": null,
@@ -170,7 +227,59 @@
                 {
                     "label": null,
                     "type": null,
+                    "guiIdPath": "registrationAvailable"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventParticipants"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "private"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventTs.eventDetailLink"
+                }
+            ],
+            "bulkyOrder": [
+                {
+                    "label": null,
+                    "type": null,
                     "guiIdPath": "eventTs.title"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventTs.intro"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventTs.pathPart"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "dateFrom"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "dateTo"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventTs.location"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventTs.time"
                 },
                 {
                     "label": null,
@@ -185,17 +294,12 @@
                 {
                     "label": null,
                     "type": null,
-                    "guiIdPath": "eventTs.intro"
+                    "guiIdPath": "private"
                 },
                 {
                     "label": null,
-                    "type": null,
-                    "guiIdPath": "eventTs.time"
-                },
-                {
-                    "label": null,
-                    "type": null,
-                    "guiIdPath": "eventTs.location"
+                    "type": "simple-group",
+                    "guiIdPath": "formElementSet"
                 },
                 {
                     "label": null,
@@ -257,7 +361,74 @@
                 {
                     "label": null,
                     "type": null,
+                    "guiIdPath": "private"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "formElementSet"
+                },
+                {
+                    "label": null,
+                    "type": null,
                     "guiIdPath": "eventParticipants"
+                }
+            ],
+            "addOrder": [
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventTs.title"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventTs.intro"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "dateFrom"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "dateTo"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventTs.location"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventTs.time"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "registrationAvailable"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "maxParticipants"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "formElementSet"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "private"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "eventTs.contentItems"
                 }
             ],
             "partialControlOrder": [],
@@ -272,7 +443,13 @@
             "pluralLabel": "Teilnehmer",
             "iconType": null,
             "identityStringPattern": "{firstName} {lastName} - {email}",
-            "fields": {
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
+            "props": {
                 "firstName": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
                     "props": {
@@ -345,6 +522,24 @@
                     "objectProperty": "email",
                     "entityProperty": "email"
                 },
+                "additionalData": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": false,
+                        "draftable": false,
+                        "maxlength": "255",
+                        "multiline": true
+                    },
+                    "label": "Zus\u00e4tzliche Registrierungsdaten",
+                    "objectProperty": "additionalData",
+                    "entityProperty": "additionalData"
+                },
                 "event": {
                     "class": "rocket\\impl\\ei\\component\\prop\\relation\\ManyToOneSelectEiProp",
                     "props": {
@@ -384,7 +579,9 @@
                 },
                 "addEiCommand": {
                     "class": "rocket\\impl\\ei\\component\\command\\common\\AddEiCommand",
-                    "props": []
+                    "props": {
+                        "duplicateAllowed": true
+                    }
                 },
                 "deleteEiCommand": {
                     "class": "rocket\\impl\\ei\\component\\command\\common\\DeleteEiCommand",
@@ -402,7 +599,13 @@
             "label": "Event T",
             "pluralLabel": "Event Ts",
             "iconType": null,
-            "fields": {
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
+            "props": {
                 "title": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
                     "props": {
@@ -506,12 +709,56 @@
                         "draftable": false,
                         "targetExtensions": [],
                         "targetRemovalStrategy": "prevent",
+                        "targetOrderField": "orderIndex",
                         "orphansAllowed": false,
-                        "reduced": true
+                        "reduced": true,
+                        "panels": [
+                            {
+                                "panelName": "top",
+                                "panelLabel": "Kopfbereich",
+                                "allowedContentItemIds": {
+                                    "ci-ci-teaser": "ci-ci-teaser"
+                                },
+                                "min": "0",
+                                "max": "1"
+                            },
+                            {
+                                "panelName": "main",
+                                "panelLabel": "Inhalt",
+                                "allowedContentItemIds": {
+                                    "banner-ci-banner": "banner-ci-banner",
+                                    "ci-ci-cke": "ci-ci-cke",
+                                    "ci-ci-youtube": "ci-ci-youtube",
+                                    "ci-ci-article": "ci-ci-article",
+                                    "ci-ci-html-snippet": "ci-ci-html-snippet",
+                                    "ci-ci-attachment": "ci-ci-attachment",
+                                    "ci-ci-two-columns": "ci-ci-two-columns",
+                                    "ci-ci-three-columns": "ci-ci-three-columns",
+                                    "ci-ci-image": "ci-ci-image",
+                                    "ci-ci-google-maps": "ci-ci-google-maps",
+                                    "ci-ci-teaser": "ci-ci-teaser",
+                                    "ci-ci-small-tiles": "ci-ci-small-tiles",
+                                    "ci-ci-iframe": "ci-ci-iframe",
+                                    "gallery-ci-gallery": "gallery-ci-gallery",
+                                    "team-ci-team-member": "team-ci-team-member"
+                                },
+                                "min": "0"
+                            }
+                        ]
                     },
                     "label": "Inhalt",
                     "objectProperty": "contentItems",
                     "entityProperty": "contentItems"
+                },
+                "eventDetailLink": {
+                    "class": "event\\rocket\\EventDetailLinkEiProp",
+                    "props": {
+                        "displayInOverview": false,
+                        "displayInDetailView": false,
+                        "displayInEditView": false,
+                        "displayInAddView": false
+                    },
+                    "label": "Detailseite"
                 }
             },
             "commands": {
@@ -531,7 +778,9 @@
                 },
                 "addEiCommand": {
                     "class": "rocket\\impl\\ei\\component\\command\\common\\AddEiCommand",
-                    "props": []
+                    "props": {
+                        "duplicateAllowed": true
+                    }
                 },
                 "deleteEiCommand": {
                     "class": "rocket\\impl\\ei\\component\\command\\common\\DeleteEiCommand",
@@ -548,8 +797,8 @@
             "dataSourceName": null,
             "label": "Event-Seite",
             "pluralLabel": "Event-Seiten",
-            "iconType": "fa fa-glass",
-            "fields": [],
+            "iconType": null,
+            "props": [],
             "commands": [],
             "partialControlOrder": [],
             "overallControlOrder": [],
@@ -562,7 +811,7 @@
             "label": "Veranstaltung",
             "pluralLabel": "Veranstaltungen",
             "iconType": null,
-            "fields": {
+            "props": {
                 "sizeType": {
                     "class": "rocket\\impl\\ei\\component\\prop\\enum\\EnumEiProp",
                     "props": {

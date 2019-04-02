@@ -19,6 +19,7 @@ class EventParticipant extends ObjectAdapter {
 	private $phone;
 	private $email;
 	private $event;
+	private $additionalData;
 
 	/**
 	 * @return int
@@ -102,5 +103,13 @@ class EventParticipant extends ObjectAdapter {
 	 */
 	public function setEvent(Event $event) {
 		$this->event = $event;
+	}
+
+	public function getAdditionalData() {
+		return $this->additionalData;
+	}
+
+	public function setAdditionalData(string $additionalData = null) {
+		$this->additionalData = $additionalData;
 	}
 }

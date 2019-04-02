@@ -5,18 +5,20 @@ use n2n\reflection\ObjectAdapter;
 use n2n\web\http\orm\ResponseCacheClearer;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\reflection\annotation\AnnoInit;
-use n2n\persistence\orm\CascadeType;
 use n2n\persistence\orm\annotation\AnnoOneToMany;
 use n2n\l10n\N2nLocale;
 use rocket\impl\ei\component\prop\translation\Translator;
 use n2n\l10n\L10nUtils;
 use n2n\l10n\DateTimeFormat;
+use formgen\bo\FormElementSet;
+use n2n\persistence\orm\annotation\AnnoOneToOne;
 
 class Event extends ObjectAdapter {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));
-		$ai->p('eventParticipants', new AnnoOneToMany(EventParticipant::getClass(), 'event', CascadeType::ALL, null, true));
-		$ai->p('eventTs', new AnnoOneToMany(EventT::getClass(), 'event', CascadeType::ALL, null, true));
+		$ai->p('eventParticipants', new AnnoOneToMany(EventParticipant::getClass(), 'event', \n2n\persistence\orm\CascadeType::ALL, null, true));
+		$ai->p('eventTs', new AnnoOneToMany(EventT::getClass(), 'event', \n2n\persistence\orm\CascadeType::ALL, null, true));
+		$ai->p('formElementSet', new AnnoOneToOne(FormElementSet::getClass(), null, \n2n\persistence\orm\CascadeType::ALL, null, true));
 	}
 
 	private $id;
@@ -26,9 +28,12 @@ class Event extends ObjectAdapter {
 	private $maxParticipants;
 	private $eventParticipants;
 	private $eventTs;
+	private $formElementSet;
+	private $private;
 
 	public function __construct() {
 		$this->eventParticipants = new \ArrayObject();
+		$this->formElementSet = new FormElementSet();
 	}
 
 	/**
@@ -90,7 +95,7 @@ class Event extends ObjectAdapter {
 	/**
 	 * @param bool $registrationAvailable
 	 */
-	public function setRegistrationAvailable(bool $registrationAvailable = null) {
+	public function setRegistrationAvailable(bool $registrationAvailable) {
 		$this->registrationAvailable = (bool) $registrationAvailable;
 	}
 
@@ -123,7 +128,7 @@ class Event extends ObjectAdapter {
 	}
 
 	/**
-	 * @return EventParticipant []
+	 * @return EventParticipant[]
 	 */
 	public function getEventParticipants() {
 		return $this->eventParticipants;
@@ -134,7 +139,7 @@ class Event extends ObjectAdapter {
 	}
 
 	/**
-	 * @return EventT []
+	 * @return EventT[]
 	 */
 	public function getEventTs() {
 		return $this->eventTs;
@@ -143,13 +148,29 @@ class Event extends ObjectAdapter {
 	public function setEventTs($eventTs) {
 		$this->eventTs = $eventTs;
 	}
-	
+
 	public function getDateDisplay(N2nLocale $n2nLocale) {
 		$dateDisplay = L10nUtils::formatDateTime($this->dateFrom, $n2nLocale, null, DateTimeFormat::STYLE_NONE);
 		if (null !== $this->dateTo) {
 			$dateDisplay .= ' - ' . L10nUtils::formatDateTime($this->dateTo, $n2nLocale, null, DateTimeFormat::STYLE_NONE);
-		}
+}
 			
 		return $dateDisplay;
+	}
+
+	public function getFormElementSet() {
+		return $this->formElementSet;
+	}
+
+	public function setFormElementSet(FormElementSet $formElementSet = null) {
+		$this->formElementSet = $formElementSet;
+	}
+
+	public function isPrivate() {
+		return $this->private;
+	}
+
+	public function setPrivate(bool $private) {
+		$this->private = $private;
 	}
 }

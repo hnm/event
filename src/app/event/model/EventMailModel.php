@@ -4,13 +4,14 @@ namespace event\model;
 use n2n\context\RequestScoped;
 use event\bo\EventParticipant;
 use dbtext\model\TextService;
-use n2n\util\type\ArgUtils;
 use n2n\mail\MailUtils;
 use event\bo\EventT;
 use n2n\l10n\N2nLocale;
+use n2n\util\type\ArgUtils;
 
 class EventMailModel implements RequestScoped {
 	const SEPARATOR = "-----------------------------------------------------\n";
+	const DOUBLE_NEW_LINE = "\n";
 	const NEW_LINE = "\n";
 	
 	private $tc;
@@ -34,10 +35,14 @@ class EventMailModel implements RequestScoped {
 	}
 	
 	private function buildEventParticipantMailPart(EventParticipant $eventParticipant, int $num) {
-		return self::SEPARATOR . $num . '. ' . $this->tc->t('event_participant_txt', null, $this->n2nLocale) . self::NEW_LINE . self::SEPARATOR
+		$str = self::SEPARATOR . $num . '. ' . $this->tc->t('event_participant_txt', null, $this->n2nLocale) . self::NEW_LINE . self::SEPARATOR
 				. $this->tc->t('first_name_txt', null, $this->n2nLocale) . ': ' . $eventParticipant->getFirstName() . self::NEW_LINE
 				. $this->tc->t('last_name_txt', null, $this->n2nLocale) . ': ' . $eventParticipant->getLastName() . self::NEW_LINE
 				. $this->tc->t('email_txt', null, $this->n2nLocale) . ': ' . $eventParticipant->getEmail() . self::NEW_LINE
-				. $this->tc->t('phone_txt', null, $this->n2nLocale) . ': ' . $eventParticipant->getPhone() . self::NEW_LINE . self::NEW_LINE;
+				. $this->tc->t('phone_txt', null, $this->n2nLocale) . ': ' . $eventParticipant->getPhone() . self::NEW_LINE;
+		
+		if (null == ($additionalData = $eventParticipant->getAdditionalData())) return $str . self::NEW_LINE;
+		
+		return $str . $additionalData . self::DOUBLE_NEW_LINE;
 	}
 }

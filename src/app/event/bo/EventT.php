@@ -9,13 +9,16 @@ use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\reflection\annotation\AnnoInit;
 use rocket\impl\ei\component\prop\ci\model\ContentItem;
 use n2n\persistence\orm\CascadeType;
+use event\bo\Event;
 use n2n\persistence\orm\annotation\AnnoOneToMany;
 use n2n\persistence\orm\annotation\AnnoManyToOne;
+use n2n\persistence\orm\annotation\AnnoOrderBy;
 
 class EventT extends ObjectAdapter implements Translatable {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));
-		$ai->p('contentItems', new AnnoOneToMany(ContentItem::getClass(), null, CascadeType::ALL, null, true));
+		$ai->p('contentItems', new AnnoOneToMany(ContentItem::getClass(), null, CascadeType::ALL, null, true), 
+				new AnnoOrderBy(array('orderIndex' => 'ASC')));
 		$ai->p('event', new AnnoManyToOne(Event::getClass()));
 	}
 
@@ -39,7 +42,7 @@ class EventT extends ObjectAdapter implements Translatable {
 	/**
 	 * @param int $id
 	 */
-	public function setId(int $id = null) {
+	public function setId($id = null) {
 		$this->id = $id;
 	}
 
@@ -153,7 +156,7 @@ class EventT extends ObjectAdapter implements Translatable {
 	}
 	
 	public function hasDetail() {
-	    if (count($this->contentItems) > 0) return true;
-	    return false;
+		if (count($this->contentItems) > 0) return true;
+		return false;
 	}
 }

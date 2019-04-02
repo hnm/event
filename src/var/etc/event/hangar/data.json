@@ -39,9 +39,15 @@
             "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\ManyToOnePropDef",
             "props": {
                 "targetEntityClass": "event\\bo\\Event",
-                "mappedBy": null,
                 "cascadeType": [],
                 "fetchType": "lazy"
+            }
+        },
+        "additionalData": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
             }
         }
     },
@@ -137,7 +143,7 @@
         "registrationAvailable": {
             "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\BooleanPropDef",
             "props": {
-                "required": false
+                "required": true
             }
         },
         "dateTo": {
@@ -183,6 +189,28 @@
                 },
                 "fetchType": "lazy",
                 "orphanRemoval": true
+            }
+        },
+        "formElementSet": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToOnePropDef",
+            "props": {
+                "targetEntityClass": "formgen\\bo\\FormElementSet",
+                "mappedBy": null,
+                "cascadeType": {
+                    "1": "1",
+                    "2": "2",
+                    "4": "4",
+                    "8": "8",
+                    "16": "16"
+                },
+                "fetchType": "lazy",
+                "orphanRemoval": true
+            }
+        },
+        "private": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\BooleanPropDef",
+            "props": {
+                "required": true
             }
         }
     },
