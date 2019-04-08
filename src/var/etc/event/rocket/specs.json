@@ -196,12 +196,8 @@
                 "addEiCommand": {
                     "class": "rocket\\impl\\ei\\component\\command\\common\\AddEiCommand",
                     "props": {
-                        "duplicateAllowed": false
+                        "duplicateAllowed": true
                     }
-                },
-                "duplicate": {
-                    "class": "win4\\ei\\EgoDuplicateEiCommand",
-                    "props": []
                 },
                 "deleteEiCommand": {
                     "class": "rocket\\impl\\ei\\component\\command\\common\\DeleteEiCommand",
