@@ -29,6 +29,7 @@ use page\model\nav\murl\MurlPage;
 use event\bo\EventPageController;
 use n2n\util\ex\IllegalStateException;
 use event\bo\EventT;
+use rocket\si\content\SiField;
 
 class EventDetailLinkEiProp extends DisplayableEiPropAdapter {
 	
@@ -47,7 +48,7 @@ class EventDetailLinkEiProp extends DisplayableEiPropAdapter {
 	 * {@inheritDoc}
 	 * @see \rocket\impl\ei\component\prop\adapter\gui\StatelessGuiFieldDisplayable::createUiComponent()
 	 */
-	public function createUiComponent(HtmlView $view, Eiu $eiu) {
+	public function createOutSiField(Eiu $eiu): SiField {
 		$eventT = $eiu->entry()->getEntityObj();
 		IllegalStateException::assertTrue($eventT instanceof EventT);
 		

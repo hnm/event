@@ -199,10 +199,6 @@
                         "duplicateAllowed": false
                     }
                 },
-                "duplicate": {
-                    "class": "win4\\ei\\EgoDuplicateEiCommand",
-                    "props": []
-                },
                 "deleteEiCommand": {
                     "class": "rocket\\impl\\ei\\component\\command\\common\\DeleteEiCommand",
                     "props": []
