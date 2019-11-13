@@ -33,6 +33,9 @@ use rocket\si\content\SiField;
 
 class EventDetailLinkEiProp extends DisplayableEiPropAdapter {
 	
+	protected function prepare() {
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 * @see \rocket\impl\ei\component\prop\adapter\DisplayableEiPropAdapter::createEiPropConfigurator()
@@ -55,4 +58,5 @@ class EventDetailLinkEiProp extends DisplayableEiPropAdapter {
 		return $view->getHtmlBuilder()->getLink(MurlPage::tag(EventPageController::class)->pathExt($eventT->getPathPart()), 
 				$view->getL10nText('detail_txt'), ['target' => '_blank']);
 	}
+
 }
