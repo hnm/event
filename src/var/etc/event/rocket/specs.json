@@ -207,89 +207,89 @@
             "overviewOrder": [
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.title"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "dateFrom"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "dateTo"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "registrationAvailable"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventParticipants"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "private"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.eventDetailLink"
                 }
             ],
             "bulkyOrder": [
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.title"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.intro"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.pathPart"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "dateFrom"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "dateTo"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.location"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.time"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "registrationAvailable"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "maxParticipants"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "private"
                 },
                 {
@@ -299,131 +299,131 @@
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.contentItems"
                 }
             ],
             "detailOrder": [
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "dateFrom"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.title"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.pathPart"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.intro"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.time"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.location"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.contentItems"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "registrationAvailable"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "maxParticipants"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "dateTo"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "private"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "formElementSet"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventParticipants"
                 }
             ],
             "addOrder": [
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.title"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.intro"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "dateFrom"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "dateTo"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.location"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.time"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "registrationAvailable"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "maxParticipants"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "formElementSet"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "private"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "eventTs.contentItems"
                 }
             ],
@@ -806,7 +806,13 @@
             "dataSourceName": null,
             "label": "Veranstaltung",
             "pluralLabel": "Veranstaltungen",
-            "iconType": null,
+            "iconType": "fas fa-birthday-cake",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "sizeType": {
                     "class": "rocket\\impl\\ei\\component\\prop\\enum\\EnumEiProp",
@@ -815,15 +821,16 @@
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "item",
                         "constant": false,
                         "readOnly": false,
                         "mandatory": false,
-                        "draftable": false,
                         "options": {
                             "3": "3",
                             "6": "6"
                         },
-                        "associatedGuiProps": []
+                        "associatedGuiProps": [],
+                        "quickSearchable": true
                     },
                     "label": "Gr\u00f6sse",
                     "objectProperty": "sizeType",
