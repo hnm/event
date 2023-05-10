@@ -22,9 +22,9 @@
 namespace event\rocket;
 
 use n2n\impl\web\ui\view\html\HtmlView;
-use rocket\ei\util\Eiu;
+use rocket\op\ei\util\Eiu;
 use rocket\impl\ei\component\prop\adapter\DisplayableEiPropAdapter;
-use rocket\ei\component\prop\indepenent\EiPropConfigurator;
+use rocket\op\ei\component\prop\indepenent\EiPropConfigurator;
 use page\model\nav\murl\MurlPage;
 use event\bo\EventPageController;
 use n2n\util\ex\IllegalStateException;
