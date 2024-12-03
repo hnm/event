@@ -31,7 +31,7 @@ class EventParticipant extends ObjectAdapter {
 	/**
 	 * @param int $id
 	 */
-	public function setId(int $id = null) {
+	public function setId(?int $id = null) {
 		$this->id = $id;
 	}
 
@@ -45,7 +45,7 @@ class EventParticipant extends ObjectAdapter {
 	/**
 	 * @param string $firstName
 	 */
-	public function setFirstName(string $firstName = null) {
+	public function setFirstName(?string $firstName = null) {
 		$this->firstName = $firstName;
 	}
 
@@ -59,7 +59,7 @@ class EventParticipant extends ObjectAdapter {
 	/**
 	 * @param string $lastName
 	 */
-	public function setLastName(string $lastName = null) {
+	public function setLastName(?string $lastName = null) {
 		$this->lastName = $lastName;
 	}
 
@@ -73,7 +73,7 @@ class EventParticipant extends ObjectAdapter {
 	/**
 	 * @param string $phone
 	 */
-	public function setPhone(string $phone = null) {
+	public function setPhone(?string $phone = null) {
 		$this->phone = $phone;
 	}
 
@@ -87,7 +87,7 @@ class EventParticipant extends ObjectAdapter {
 	/**
 	 * @param string $email
 	 */
-	public function setEmail(string $email = null) {
+	public function setEmail(?string $email = null) {
 		$this->email = $email;
 	}
 
@@ -109,7 +109,7 @@ class EventParticipant extends ObjectAdapter {
 		return $this->additionalData;
 	}
 
-	public function setAdditionalData(string $additionalData = null) {
+	public function setAdditionalData(?string $additionalData = null) {
 		$this->additionalData = $additionalData;
 	}
 }

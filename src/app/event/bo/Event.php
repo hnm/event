@@ -67,7 +67,7 @@ class Event extends ObjectAdapter {
 	/**
 	 * @param int $id
 	 */
-	public function setId(int $id = null) {
+	public function setId(?int $id = null) {
 		$this->id = $id;
 	}
 
@@ -109,7 +109,7 @@ class Event extends ObjectAdapter {
 	/**
 	 * @param \DateTime $dateTo
 	 */
-	public function setDateTo(\DateTime $dateTo = null) {
+	public function setDateTo(?\DateTime $dateTo = null) {
 		$this->dateTo = $dateTo;
 	}
 
@@ -123,7 +123,7 @@ class Event extends ObjectAdapter {
 	/**
 	 * @param int $maxParticipants
 	 */
-	public function setMaxParticipants(int $maxParticipants = null) {
+	public function setMaxParticipants(?int $maxParticipants = null) {
 		$this->maxParticipants = $maxParticipants;
 	}
 
@@ -162,7 +162,7 @@ class Event extends ObjectAdapter {
 		return $this->formElementSet;
 	}
 
-	public function setFormElementSet(FormElementSet $formElementSet = null) {
+	public function setFormElementSet(?FormElementSet $formElementSet = null) {
 		$this->formElementSet = $formElementSet;
 	}
 

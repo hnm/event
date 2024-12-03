@@ -70,7 +70,7 @@ class EventT extends ObjectAdapter implements Translatable {
 	/**
 	 * @param string $title
 	 */
-	public function setTitle(string $title = null) {
+	public function setTitle(?string $title = null) {
 		$this->title = $title;
 	}
 
@@ -84,7 +84,7 @@ class EventT extends ObjectAdapter implements Translatable {
 	/**
 	 * @param string $pathPart
 	 */
-	public function setPathPart(string $pathPart = null) {
+	public function setPathPart(?string $pathPart = null) {
 		$this->pathPart = $pathPart;
 	}
 
@@ -98,7 +98,7 @@ class EventT extends ObjectAdapter implements Translatable {
 	/**
 	 * @param string $intro
 	 */
-	public function setIntro(string $intro = null) {
+	public function setIntro(?string $intro = null) {
 		$this->intro = $intro;
 	}
 
@@ -112,7 +112,7 @@ class EventT extends ObjectAdapter implements Translatable {
 	/**
 	 * @param string $time
 	 */
-	public function setTime(string $time = null) {
+	public function setTime(?string $time = null) {
 		$this->time = $time;
 	}
 
@@ -126,7 +126,7 @@ class EventT extends ObjectAdapter implements Translatable {
 	/**
 	 * @param string $location
 	 */
-	public function setLocation(string $location = null) {
+	public function setLocation(?string $location = null) {
 		$this->location = $location;
 	}
 
@@ -151,7 +151,7 @@ class EventT extends ObjectAdapter implements Translatable {
 	/**
 	 * @param Event $event
 	 */
-	public function setEvent(Event $event = null) {
+	public function setEvent(?Event $event = null) {
 		$this->event = $event;
 	}
 	

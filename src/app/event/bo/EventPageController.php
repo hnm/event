@@ -15,7 +15,7 @@ class EventPageController extends PageController {
 		$ai->m('events', new AnnoPage(), new AnnoPageCiPanels('top', 'main', 'aside'));
 	}
 
-	public function events(EventController $eventController, array $r = null) {
+	public function events(EventController $eventController, ?array $r = null) {
 		$this->delegate($eventController);
 	}
 }

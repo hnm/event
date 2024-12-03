@@ -27,7 +27,7 @@ class EventParticipantForm implements Dispatchable {
 	public $phone;
 	public $magForm;
 	
-	public function __construct(N2nLocale $n2nLocale, FormElementSet $formElementSet = null) {
+	public function __construct(N2nLocale $n2nLocale, ?FormElementSet $formElementSet = null) {
 		$this->n2nLocale = $n2nLocale;
 		if (null !== $formElementSet && $formElementSet->hasFormElements()) {
 			$this->formElementSet = $formElementSet;

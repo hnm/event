@@ -20,7 +20,7 @@ class EventDao implements RequestScoped {
 	/**
 	 * @return Event []
 	 */
-	public function getEvents(int $num = null) {
+	public function getEvents(?int $num = null) {
 		$today = (new \DateTime())->setTime(0, 0, 0);
 		$events =  $this->em->createNqlCriteria('SELECT e FROM event\bo\Event e WHERE (e.dateFrom >= :today OR e.dateTo >= :today) 
 						AND e.private = false ORDER BY e.dateFrom ASC, e.eventTs.time ASC', 

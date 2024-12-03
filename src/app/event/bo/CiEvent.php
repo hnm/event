@@ -32,7 +32,7 @@ class CiEvent extends ContentItem {
 	/**
 	 * @param int $sizeType
 	 */
-	public function setSizeType(int $sizeType = null) {
+	public function setSizeType(?int $sizeType = null) {
 		$this->sizeType = $sizeType;
 	}
 }
